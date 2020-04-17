@@ -1,0 +1,90 @@
+$colourA: lightseagreen;
+$colourB: lightsalmon;
+
+%text {
+    padding: 20px;
+    color: white;
+}
+
+%table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+body {
+    @extend %text;
+    font-family: 'Product Sans';
+}
+
+h1, .table {
+    font-weight: bold;
+}
+
+.table, .intro {
+    font-size: 18px;
+}
+
+@media (min-width: 600px) {
+    body {
+        background-color: $colourA;
+    }
+    #greeting::before {
+        content: "Welcome to my webpage!"
+    }
+    th, .container > div {
+    background-color: $colourB;
+    }
+    .intro {
+        width: 60%;
+    }
+    table {
+        @extend %table;
+    }
+}
+
+@media (max-width: 599px) {
+    body {
+        background-color: $colourB;
+    }
+    #greeting::before {
+        content: "Welcome!"
+    }
+    th, .container > div {
+    background-color: $colourA;
+    }
+    .intro {
+        width: 100%;
+    }
+    table {
+        @extend %table;
+        width: 100%;
+    }
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.stats {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container > div {
+    margin: 20px;
+    padding: 20px;
+}
+
+.container-item {
+    width: 100%;
+}
+
+.caption {
+    @extend %text;
+    text-align: center;
+}
